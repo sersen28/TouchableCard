@@ -11,6 +11,7 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Media.Media3D;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
@@ -31,7 +32,7 @@ namespace TouchableCard.Controls
 				this._isMousePressed = true;
 			};
 
-			this.MouseMove += this.SpinningCard;
+			this.MouseMove += this.MovingCard;
 			this.PreviewMouseLeftButtonUp += this.RestoreCard;
 			this.MouseLeave += this.RestoreCard;
 		}
@@ -39,26 +40,34 @@ namespace TouchableCard.Controls
 		private void RestoreCard(object sender, MouseEventArgs e)
 		{
 			this._isMousePressed = false;
+			this.Card.RenderTransform = new TransformGroup();
+			this.Card.LayoutTransform = new TransformGroup();
 		}
 
 		private void SpinningCard(object sender, MouseEventArgs e)
 		{
+			if (!this._isMousePressed) return;
+
 			var pos = e.GetPosition(this);
+			var x = this.ActualWidth / 2;
+			var y = this.ActualHeight / 2;
 
-			if (sender is Control rect)
-			{
-				var x = rect.ActualWidth / 2;
-				var y = rect.ActualHeight / 2;
+			var angle = GetAngle(new Point(x , y), new Point(pos.X, pos.Y));
+			var rotateTransform = new RotateTransform(angle);
+			this.Card.LayoutTransform = rotateTransform;
+			
+		}
 
-				if (!this._isMousePressed) return;
+		private void MovingCard(object sender, MouseEventArgs e)
+		{
+			if (!this._isMousePressed) return;
 
-				var angle = GetAngle(new Point(x, y), new Point(pos.X, pos.Y));
+			var pos = e.GetPosition(this);
+			var x = this.ActualWidth / 2;
+			var y = this.ActualHeight / 2;
 
-				var rotateTransform = new RotateTransform(angle);
-				var group = new TransformGroup();
-				group.Children.Add(rotateTransform);
-				this.Card.LayoutTransform = rotateTransform;
-			}
+			var translateTransform = new TranslateTransform(pos.X - x, pos.Y - y);
+			this.Card.RenderTransform = translateTransform;
 		}
 
 		/// <summary>
