@@ -1,19 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using System.Windows.Media.Media3D;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace TouchableCard.Controls
 {
@@ -22,6 +13,8 @@ namespace TouchableCard.Controls
 	/// </summary>
 	public partial class TouchableCard : UserControl
 	{
+		private const double MaxAngle = 25;
+
 		private bool _isMousePressed = false;
 
 		public TouchableCard()
@@ -32,7 +25,7 @@ namespace TouchableCard.Controls
 				this._isMousePressed = true;
 			};
 
-			this.MouseMove += this.MovingCard;
+			this.MouseMove += this.SlopingCard;
 			this.PreviewMouseLeftButtonUp += this.RestoreCard;
 			this.MouseLeave += this.RestoreCard;
 		}
@@ -42,6 +35,21 @@ namespace TouchableCard.Controls
 			this._isMousePressed = false;
 			this.Card.RenderTransform = new TransformGroup();
 			this.Card.LayoutTransform = new TransformGroup();
+		}
+
+		private void SlopingCard(object sender, MouseEventArgs e)
+		{
+			if (!this._isMousePressed) return;
+
+			var pos = e.GetPosition(this);
+			var x = pos.X - this.ActualWidth / 2;
+			var y = pos.Y - this.ActualHeight / 2;
+
+			SkewTransform skew = new SkewTransform(
+				GetAngle(this.ActualWidth, pos.X),
+				-GetAngle(this.ActualHeight, pos.Y),
+				x, y);
+			this.Card.LayoutTransform = skew;
 		}
 
 		private void SpinningCard(object sender, MouseEventArgs e)
@@ -68,6 +76,18 @@ namespace TouchableCard.Controls
 
 			var translateTransform = new TranslateTransform(pos.X - x, pos.Y - y);
 			this.Card.RenderTransform = translateTransform;
+		}
+
+		/// <summary>
+		/// 컨트롤 내 마우스 위치에 비례하여 각도 구하기
+		/// </summary>
+		private double GetAngle(double size, double pos)
+		{
+			var unit = size / (MaxAngle * 2);
+			var angle = pos / unit - MaxAngle;
+
+			if (Math.Abs(angle) < 1) return 0;
+			return angle;
 		}
 
 		/// <summary>
