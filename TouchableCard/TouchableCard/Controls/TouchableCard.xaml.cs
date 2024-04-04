@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Media3D;
+using TouchableCard.Contants;
 
 namespace TouchableCard.Controls
 {
@@ -16,16 +18,23 @@ namespace TouchableCard.Controls
 		private const double MaxAngle = 25;
 
 		private bool _isMousePressed = false;
-
+		private Dictionary<CardType, Action<object, MouseEventArgs>> _cardReactionDict = new();
+		
 		public TouchableCard()
 		{
 			InitializeComponent();
+			this._cardReactionDict.Add(CardType.Moving, MovingCard);
+			this._cardReactionDict.Add(CardType.Spinning, SpinningCard);
+			this._cardReactionDict.Add(CardType.Sloping, SlopingCard);
 
 			this.PreviewMouseLeftButtonDown += (s, e) => {
 				this._isMousePressed = true;
 			};
 
-			this.MouseMove += this.SlopingCard;
+			this.MouseMove += (s, e) => {
+				this._cardReactionDict[this.CardType].Invoke(s, e);
+			 };
+
 			this.PreviewMouseLeftButtonUp += this.RestoreCard;
 			this.MouseLeave += this.RestoreCard;
 		}
@@ -103,6 +112,16 @@ namespace TouchableCard.Controls
 			Debug.WriteLine($"{radian * 57.3f}");
 
 			return radian * 57.3f; // 180.0f / 3.141592f
+		}
+
+		public static readonly DependencyProperty CardTypeProperty
+			= DependencyProperty.Register("CardType", typeof(CardType)
+				, typeof(TouchableCard));
+
+		public CardType CardType
+		{
+			get => (CardType)GetValue(CardTypeProperty);
+			set => SetValue(CardTypeProperty, value);
 		}
 	}
 }
