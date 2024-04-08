@@ -8,8 +8,123 @@
 	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 	xmlns:vm="clr-namespace:TouchableCard.ViewModels"
 	Title="{x:Static vm:MainViewModel.Title}"
-	Width="1200"
+	Width="1400"
 	Height="1000"
 	mc:Ignorable="d">
-	<controls:TouchableCard />
+	<Grid Background="{StaticResource DefaultBackground}">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="*" />
+			<RowDefinition Height="Auto" />
+			<RowDefinition Height="Auto" />
+			<RowDefinition Height="Auto" />
+			<RowDefinition Height="Auto" />
+		</Grid.RowDefinitions>
+		<controls:TouchableCard Grid.Row="0" ReactionType="{Binding CardReactionType}" />
+		<Rectangle
+			Grid.Row="1"
+			Height="1"
+			Fill="{StaticResource DefaultForeground}" />
+		<Grid Grid.Row="2" Height="80">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="*" />
+				<ColumnDefinition Width="1" />
+				<ColumnDefinition Width="*" />
+			</Grid.ColumnDefinitions>
+			<TextBlock
+				Grid.Column="0"
+				HorizontalAlignment="Center"
+				VerticalAlignment="Center"
+				FontFamily="{StaticResource NotoBold}"
+				FontSize="32"
+				Foreground="{StaticResource DefaultForeground}"
+				Text="Reactions" />
+			<TextBlock
+				Grid.Column="2"
+				HorizontalAlignment="Center"
+				VerticalAlignment="Center"
+				FontFamily="{StaticResource NotoBold}"
+				FontSize="32"
+				Foreground="{StaticResource DefaultForeground}"
+				Text="Effects" />
+			<Rectangle
+				Grid.Column="1"
+				Width="1"
+				Fill="{StaticResource DefaultForeground}" />
+		</Grid>
+		<Rectangle
+			Grid.Row="3"
+			Height="1"
+			Fill="{StaticResource DefaultForeground}" />
+		<Grid Grid.Row="4" Height="100">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="2*" />
+				<ColumnDefinition Width="1" />
+				<ColumnDefinition Width="2*" />
+				<ColumnDefinition Width="1" />
+				<ColumnDefinition Width="2*" />
+				<ColumnDefinition Width="1" />
+				<ColumnDefinition Width="3*" />
+				<ColumnDefinition Width="1" />
+				<ColumnDefinition Width="3*" />
+			</Grid.ColumnDefinitions>
+			<controls:SelectButton
+				Grid.Column="0"
+				CheckedSource="{StaticResource wave_checked}"
+				Command="{Binding ReactionCommand}"
+				CommandParameter="Sloping"
+				Content="Sloping"
+				GroupName="Reactions"
+				IsChecked="True"
+				NormalSource="{StaticResource wave_normal}" />
+			<controls:SelectButton
+				Grid.Column="2"
+				CheckedSource="{StaticResource move_checked}"
+				Command="{Binding ReactionCommand}"
+				CommandParameter="Moving"
+				Content="Moving"
+				GroupName="Reactions"
+				NormalSource="{StaticResource move_normal}" />
+			<Rectangle
+				Grid.Column="1"
+				Width="1"
+				Fill="{StaticResource DefaultForeground}" />
+			<controls:SelectButton
+				Grid.Column="4"
+				CheckedSource="{StaticResource spin_checked}"
+				Command="{Binding ReactionCommand}"
+				CommandParameter="Spinning"
+				Content="Spinning"
+				GroupName="Reactions"
+				NormalSource="{StaticResource spin_normal}" />
+			<Rectangle
+				Grid.Column="3"
+				Width="1"
+				Fill="{StaticResource DefaultForeground}" />
+			<Rectangle
+				Grid.Column="5"
+				Width="1"
+				Fill="{StaticResource DefaultForeground}" />
+			<controls:SelectButton
+				Grid.Column="6"
+				CheckedSource="{StaticResource shine_checked}"
+				Command="{Binding EffectCommand}"
+				CommandParameter="Shining"
+				Content="Shining"
+				GroupName="Effects"
+				IsChecked="True"
+				NormalSource="{StaticResource shine_normal}" />
+			<Rectangle
+				Grid.Column="7"
+				Width="1"
+				Fill="{StaticResource DefaultForeground}" />
+			<controls:SelectButton
+				Grid.Column="8"
+				CheckedSource="{StaticResource prism_checked}"
+				Command="{Binding EffectCommand}"
+				CommandParameter="Prism"
+				Content="Prism"
+				GroupName="Effects"
+				NormalSource="{StaticResource prism_normal}" />
+		</Grid>
+	</Grid>
 </Window>

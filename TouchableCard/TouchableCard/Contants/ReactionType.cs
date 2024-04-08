@@ -1,6 +1,6 @@
 ﻿namespace TouchableCard.Contants
 {
-	public enum CardType
+	public enum ReactionType
 	{
 		Moving,
 		Spinning,

@@ -18,21 +18,21 @@ namespace TouchableCard.Controls
 		private const double MaxAngle = 25;
 
 		private bool _isMousePressed = false;
-		private Dictionary<CardType, Action<object, MouseEventArgs>> _cardReactionDict = new();
+		private Dictionary<ReactionType, Action<object, MouseEventArgs>> _cardReactionDict = new();
 		
 		public TouchableCard()
 		{
 			InitializeComponent();
-			this._cardReactionDict.Add(CardType.Moving, MovingCard);
-			this._cardReactionDict.Add(CardType.Spinning, SpinningCard);
-			this._cardReactionDict.Add(CardType.Sloping, SlopingCard);
+			this._cardReactionDict.Add(ReactionType.Moving, MovingCard);
+			this._cardReactionDict.Add(ReactionType.Spinning, SpinningCard);
+			this._cardReactionDict.Add(ReactionType.Sloping, SlopingCard);
 
 			this.PreviewMouseLeftButtonDown += (s, e) => {
 				this._isMousePressed = true;
 			};
 
 			this.MouseMove += (s, e) => {
-				this._cardReactionDict[this.CardType].Invoke(s, e);
+				this._cardReactionDict[this.ReactionType].Invoke(s, e);
 			 };
 
 			this.PreviewMouseLeftButtonUp += this.RestoreCard;
@@ -114,14 +114,14 @@ namespace TouchableCard.Controls
 			return radian * 57.3f; // 180.0f / 3.141592f
 		}
 
-		public static readonly DependencyProperty CardTypeProperty
-			= DependencyProperty.Register("CardType", typeof(CardType)
+		public static readonly DependencyProperty ReactionTypeProperty
+			= DependencyProperty.Register("ReactionType", typeof(ReactionType)
 				, typeof(TouchableCard));
 
-		public CardType CardType
+		public ReactionType ReactionType
 		{
-			get => (CardType)GetValue(CardTypeProperty);
-			set => SetValue(CardTypeProperty, value);
+			get => (ReactionType)GetValue(ReactionTypeProperty);
+			set => SetValue(ReactionTypeProperty, value);
 		}
 	}
 }
