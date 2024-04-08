@@ -8,6 +8,8 @@
 		<ResourceDictionary>
 			<ResourceDictionary.MergedDictionaries>
 				<ResourceDictionary Source="/TouchableCard;component/Resources/ImageDictionary.xaml" />
+				<ResourceDictionary Source="/TouchableCard;component/Resources/FontDictionary.xaml" />
+				<ResourceDictionary Source="/TouchableCard;component/Resources/ColorDictionary.xaml" />
 			</ResourceDictionary.MergedDictionaries>
 		</ResourceDictionary>
 	</Application.Resources>

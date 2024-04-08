@@ -6,4 +6,49 @@
 		x:Key="black_card"
 		PresentationOptions:Freeze="True"
 		UriSource="pack://application:,,,/TouchableCard;component/Resources/Images/black_card.png" />
+
+	<BitmapImage
+		x:Key="move_normal"
+		PresentationOptions:Freeze="True"
+		UriSource="pack://application:,,,/TouchableCard;component/Resources/Images/move_normal.png" />
+	<BitmapImage
+		x:Key="move_checked"
+		PresentationOptions:Freeze="True"
+		UriSource="pack://application:,,,/TouchableCard;component/Resources/Images/move_checked.png" />
+
+	<BitmapImage
+		x:Key="prism_normal"
+		PresentationOptions:Freeze="True"
+		UriSource="pack://application:,,,/TouchableCard;component/Resources/Images/prism_normal.png" />
+	<BitmapImage
+		x:Key="prism_checked"
+		PresentationOptions:Freeze="True"
+		UriSource="pack://application:,,,/TouchableCard;component/Resources/Images/prism_checked.png" />
+
+	<BitmapImage
+		x:Key="shine_normal"
+		PresentationOptions:Freeze="True"
+		UriSource="pack://application:,,,/TouchableCard;component/Resources/Images/shine_normal.png" />
+	<BitmapImage
+		x:Key="shine_checked"
+		PresentationOptions:Freeze="True"
+		UriSource="pack://application:,,,/TouchableCard;component/Resources/Images/shine_checked.png" />
+
+	<BitmapImage
+		x:Key="spin_normal"
+		PresentationOptions:Freeze="True"
+		UriSource="pack://application:,,,/TouchableCard;component/Resources/Images/spin_normal.png" />
+	<BitmapImage
+		x:Key="spin_checked"
+		PresentationOptions:Freeze="True"
+		UriSource="pack://application:,,,/TouchableCard;component/Resources/Images/spin_checked.png" />
+
+	<BitmapImage
+		x:Key="wave_normal"
+		PresentationOptions:Freeze="True"
+		UriSource="pack://application:,,,/TouchableCard;component/Resources/Images/wave_normal.png" />
+	<BitmapImage
+		x:Key="wave_checked"
+		PresentationOptions:Freeze="True"
+		UriSource="pack://application:,,,/TouchableCard;component/Resources/Images/wave_checked.png" />
 </ResourceDictionary>
