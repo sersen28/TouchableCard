@@ -123,5 +123,15 @@ namespace TouchableCard.Controls
 			get => (ReactionType)GetValue(ReactionTypeProperty);
 			set => SetValue(ReactionTypeProperty, value);
 		}
+
+		public static readonly DependencyProperty EffectTypeProperty
+			= DependencyProperty.Register("EffectType", typeof(EffectType)
+				, typeof(TouchableCard));
+
+		public EffectType EffectType
+		{
+			get => (EffectType)GetValue(EffectTypeProperty);
+			set => SetValue(EffectTypeProperty, value);
+		}
 	}
 }

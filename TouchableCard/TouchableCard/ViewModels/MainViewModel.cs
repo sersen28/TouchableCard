@@ -42,7 +42,7 @@ namespace TouchableCard.ViewModels
 				}
 			}
 		}
-		private EffectType _CardEffectType = EffectType.Shining;
+		private EffectType _CardEffectType = EffectType.None;
 		#endregion
 
 		public DelegateCommand<string> EffectCommand { get; set; }
@@ -57,6 +57,7 @@ namespace TouchableCard.ViewModels
 			_reatcionTypeDict.Add("Moving", ReactionType.Moving);
 			_reatcionTypeDict.Add("Spinning", ReactionType.Spinning);
 
+			_effectTypeDict.Add("None", EffectType.None);
 			_effectTypeDict.Add("Shining", EffectType.Shining);
 			_effectTypeDict.Add("Prism", EffectType.Prism);
 		}
