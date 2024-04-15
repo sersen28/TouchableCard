@@ -25,18 +25,6 @@ namespace TouchableCard.Controls
 			InitializeComponent();
 		}
 
-		/*
-		public static readonly DependencyProperty GroupNameProperty
-			= DependencyProperty.Register("GroupName", typeof(string)
-				, typeof(SelectButton));
-
-		public string GroupName
-		{
-			get => (string)GetValue(GroupNameProperty);
-			set => SetValue(GroupNameProperty, value);
-		}
-		*/
-
 		public static readonly DependencyProperty NormalSourceProperty
 			= DependencyProperty.Register("NormalSource", typeof(ImageSource)
 				, typeof(SelectButton));
