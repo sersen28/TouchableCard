@@ -3,9 +3,18 @@
 	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 	xmlns:PresentationOptions="http://schemas.microsoft.com/winfx/2006/xaml/presentation/options">
 	<BitmapImage
-		x:Key="black_card"
+		x:Key="pokemon_card"
 		PresentationOptions:Freeze="True"
-		UriSource="pack://application:,,,/TouchableCard;component/Resources/Images/black_card.png" />
+		UriSource="pack://application:,,,/TouchableCard;component/Resources/Images/pokemon_card.png" />
+
+	<BitmapImage
+		x:Key="none_normal"
+		PresentationOptions:Freeze="True"
+		UriSource="pack://application:,,,/TouchableCard;component/Resources/Images/none_normal.png" />
+	<BitmapImage
+		x:Key="none_checked"
+		PresentationOptions:Freeze="True"
+		UriSource="pack://application:,,,/TouchableCard;component/Resources/Images/none_checked.png" />
 
 	<BitmapImage
 		x:Key="move_normal"

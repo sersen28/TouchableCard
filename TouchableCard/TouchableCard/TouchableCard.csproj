@@ -17,9 +17,11 @@
     <None Remove="Resources\Fonts\NotoSansKR-Regular.ttf" />
     <None Remove="Resources\Fonts\NotoSansKR-SemiBold.ttf" />
     <None Remove="Resources\Fonts\NotoSansKR-Thin.ttf" />
-    <None Remove="Resources\Images\black_card.png" />
     <None Remove="Resources\Images\move_checked.png" />
     <None Remove="Resources\Images\move_normal.png" />
+    <None Remove="Resources\Images\none_checked.png" />
+    <None Remove="Resources\Images\none_normal.png" />
+    <None Remove="Resources\Images\pokemon_card.png" />
     <None Remove="Resources\Images\prism_checked.png" />
     <None Remove="Resources\Images\prism_normal.png" />
     <None Remove="Resources\Images\shine_checked.png" />
@@ -40,9 +42,11 @@
     <Resource Include="Resources\Fonts\NotoSansKR-Regular.ttf" />
     <Resource Include="Resources\Fonts\NotoSansKR-SemiBold.ttf" />
     <Resource Include="Resources\Fonts\NotoSansKR-Thin.ttf" />
-    <Resource Include="Resources\Images\black_card.png" />
     <Resource Include="Resources\Images\move_checked.png" />
     <Resource Include="Resources\Images\move_normal.png" />
+    <Resource Include="Resources\Images\none_checked.png" />
+    <Resource Include="Resources\Images\none_normal.png" />
+    <Resource Include="Resources\Images\pokemon_card.png" />
     <Resource Include="Resources\Images\prism_checked.png" />
     <Resource Include="Resources\Images\prism_normal.png" />
     <Resource Include="Resources\Images\shine_checked.png" />
