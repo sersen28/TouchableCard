@@ -109,9 +109,7 @@ namespace TouchableCard.Controls
 
 			double radian = Math.Atan2(ydf, xdf);
 
-			Debug.WriteLine($"{radian * 57.3f}");
-
-			return radian * 57.3f; // 180.0f / 3.141592f
+			return radian * 57.3f + 90; // 180.0f / 3.141592f
 		}
 
 		public static readonly DependencyProperty ReactionTypeProperty
