@@ -4,6 +4,6 @@
 	{
 		Moving,
 		Spinning,
-		Sloping,
+		Skew,
 	}
 }

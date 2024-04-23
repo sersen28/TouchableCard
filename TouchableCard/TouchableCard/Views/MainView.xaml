@@ -76,8 +76,8 @@
 				Grid.Column="0"
 				CheckedSource="{StaticResource wave_checked}"
 				Command="{Binding ReactionCommand}"
-				CommandParameter="Sloping"
-				Content="Sloping"
+				CommandParameter="Skew"
+				Content="Skew"
 				GroupName="Reactions"
 				IsChecked="True"
 				NormalSource="{StaticResource wave_normal}" />

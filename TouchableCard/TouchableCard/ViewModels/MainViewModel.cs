@@ -28,7 +28,7 @@ namespace TouchableCard.ViewModels
 				}
 			}
 		}
-		private ReactionType _cardReactionType = ReactionType.Sloping;
+		private ReactionType _cardReactionType = ReactionType.Skew;
 
 		public EffectType CardEffectType
 		{
@@ -53,7 +53,7 @@ namespace TouchableCard.ViewModels
 
 		static MainViewModel()
 		{
-			_reatcionTypeDict.Add("Sloping", ReactionType.Sloping);
+			_reatcionTypeDict.Add("Skew", ReactionType.Skew);
 			_reatcionTypeDict.Add("Moving", ReactionType.Moving);
 			_reatcionTypeDict.Add("Spinning", ReactionType.Spinning);
 

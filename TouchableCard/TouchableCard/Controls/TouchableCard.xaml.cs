@@ -25,7 +25,7 @@ namespace TouchableCard.Controls
 			InitializeComponent();
 			this._cardReactionDict.Add(ReactionType.Moving, MovingCard);
 			this._cardReactionDict.Add(ReactionType.Spinning, SpinningCard);
-			this._cardReactionDict.Add(ReactionType.Sloping, SlopingCard);
+			this._cardReactionDict.Add(ReactionType.Skew, SkewCard);
 
 			this.PreviewMouseLeftButtonDown += (s, e) => {
 				this._isMousePressed = true;
@@ -46,7 +46,7 @@ namespace TouchableCard.Controls
 			this.Card.LayoutTransform = new TransformGroup();
 		}
 
-		private void SlopingCard(object sender, MouseEventArgs e)
+		private void SkewCard(object sender, MouseEventArgs e)
 		{
 			if (!this._isMousePressed) return;
 
