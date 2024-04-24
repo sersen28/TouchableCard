@@ -21,17 +21,9 @@ namespace TouchableCard.Controls
     /// </summary>
     public partial class CardEffect : UserControl
 	{
-		private bool _isMousePressed = false;
-
 		public CardEffect()
         {
             InitializeComponent();
-
-			this.PreviewMouseLeftButtonDown += (s, e) => {
-				this._isMousePressed = true;
-			};
-
-			this.PreviewMouseLeftButtonUp += this.RestoreEffect;
 
 			this.MouseMove += (s, e) =>
 			{
@@ -47,11 +39,6 @@ namespace TouchableCard.Controls
 			};
 		}
 
-		private void RestoreEffect(object sender, MouseEventArgs e)
-		{
-			this._isMousePressed = false;
-		}
-
 		public static readonly DependencyProperty EffectTypeProperty
 			= DependencyProperty.Register("EffectType", typeof(EffectType)
 				, typeof(CardEffect));
@@ -60,26 +47,6 @@ namespace TouchableCard.Controls
 		{
 			get => (EffectType)GetValue(EffectTypeProperty);
 			set => SetValue(EffectTypeProperty, value);
-		}
-
-		public static readonly DependencyProperty CardLinearGradientBrushProperty
-			= DependencyProperty.Register("CardLinearGradientBrush", typeof(LinearGradientBrush)
-				, typeof(CardEffect));
-
-		public LinearGradientBrush CardLinearGradientBrush
-		{
-			get => (LinearGradientBrush)GetValue(CardLinearGradientBrushProperty);
-			set => SetValue(CardLinearGradientBrushProperty, value);
-		}
-
-		public static readonly DependencyProperty CardRadialGradientBrushProperty
-			= DependencyProperty.Register("CardRadialGradientBrush", typeof(RadialGradientBrush)
-				, typeof(CardEffect));
-
-		public RadialGradientBrush CardRadialGradientBrush
-		{
-			get => (RadialGradientBrush)GetValue(CardRadialGradientBrushProperty);
-			set => SetValue(CardRadialGradientBrushProperty, value);
 		}
 	}
 }

@@ -71,8 +71,7 @@ namespace TouchableCard.Controls
 
 			var angle = GetAngle(new Point(x , y), new Point(pos.X, pos.Y));
 			var rotateTransform = new RotateTransform(angle);
-			this.Card.LayoutTransform = rotateTransform;
-			
+			this.Card.LayoutTransform = rotateTransform;			
 		}
 
 		private void MovingCard(object sender, MouseEventArgs e)

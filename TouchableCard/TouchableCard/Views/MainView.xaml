@@ -19,6 +19,15 @@
 			<RowDefinition Height="Auto" />
 			<RowDefinition Height="Auto" />
 		</Grid.RowDefinitions>
+		<TextBlock
+			Grid.Row="0"
+			Margin="10"
+			HorizontalAlignment="Right"
+			VerticalAlignment="Bottom"
+			FontFamily="{StaticResource NotoMedium}"
+			FontSize="14"
+			Foreground="{StaticResource DefaultForeground}"
+			Text="Developer: 김태훈&#10;Email:sersen28@daum.net" />
 		<controls:TouchableCard
 			Grid.Row="0"
 			EffectType="{Binding CardEffectType}"
